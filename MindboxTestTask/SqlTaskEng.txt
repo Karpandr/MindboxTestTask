@@ -1,0 +1,15 @@
+﻿This problem describes the many-to-many relationship.
+To build this relationship, we create in the database a link table, containing two columns: CategoryId, ProductId,
+which are foreign keys.
+
+The first one, CategoryId, refers to the "Category" table.
+The second one, ProductId, refers to the "Product" table.
+
+To solve the task, you need to execute this query:
+   SELECT p.[Name] AS 'ProductName', 
+          ISNULL(c.[Name], 'Missing') AS 'CategoryName'
+     FROM Product p
+LEFT JOIN CategoryProduct cp
+          ON p.Id = cp.ProductId
+LEFT JOIN Category c
+          ON cp.CategoryId = c.Id

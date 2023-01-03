@@ -1,0 +1,15 @@
+﻿В данной задаче описано отношение "Многие-ко-многим". 
+Для его создания в базе данных создаётся таблица-связка, содержащая два столбца: CategoryId, ProductId, 
+которые являются внешними ключами. 
+
+Первый из них - CategoryId, ссылается на таблицу "Category". 
+Второй - ProductId, ссылается на таблицу "Product". 
+
+Для решения задачи необходимо выполнить данный запрос:
+   SELECT p.[Name] AS 'Имя продукта', 
+          ISNULL(c.[Name], 'Отсутствует') AS 'Имя категории'
+     FROM Product p
+LEFT JOIN CategoryProduct cp
+          ON p.Id = cp.ProductId
+LEFT JOIN Category c
+          ON cp.CategoryId = c.Id
