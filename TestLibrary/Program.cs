@@ -5,12 +5,11 @@ Console.WriteLine("Hello, World!");
 int gf = 44444;
 byte aj = unchecked((byte)gf);
 byte ajj = (byte)gf;
-var el = new Ellpis(0, 0, 10.7);
 Figure circ = new Circle(0, 0, 10.7);
 var gj = circ.Area;
 Side a = new Side(0, 0, 300, 0);
-
-
+//Figure g = new Figure();
+//var g = MindboxTestTask.Figures.Figure;
 Point aaa = new Point(0, 0);
 Point bbb = new Point(0, 10);
 //Side a = new Side(aaa, bbb);
@@ -32,8 +31,9 @@ Side cc = new Side(0, 400, 1, 0);
 var g = a.Length;
 var n = a.Length;
 Figure triangle = new Triangle(0, 0, 300, 0,0, 400);
+//var t = triangle.CalculateArea();
 Figure xtriangle = new Triangle(0, 0, 0, 400, 300, 0);
-Figure xtriangle1 = new Triangle(2, 0, 4, 0, 6, 0);
+//Figure xtriangle1 = new Triangle(2, 0, 4, 0, 6, 0);
 Figure triangle1 = new Triangle(300, 0, 0, 400, 1, 0);
 var eq = triangle.Equals(triangle1);
 Console.WriteLine("triangle:" + triangle.GetHashCode());
