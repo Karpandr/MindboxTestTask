@@ -19,7 +19,7 @@ namespace MindboxTestTask.Figures
             Validate();
         }
 
-        public override double CalculateArea()
+        protected override double CalculateArea()
         {
             var halfPerimeter = 0.5 * (SideA.Length + SideB.Length + SideC.Length);
             var area = Math.Sqrt(halfPerimeter
@@ -32,10 +32,10 @@ namespace MindboxTestTask.Figures
         private bool SolveIsRightAngle()
         {
             var orderedSides = new List<Side>() { SideA, SideB, SideC }.OrderByDescending(x => x.Length).ToList();
-            var isRight = Math.Abs(Math.Pow(orderedSides[0].Length, 2)
+            var isRightAngled = Math.Abs(Math.Pow(orderedSides[0].Length, 2)
                                     - Math.Pow(orderedSides[1].Length, 2)
                                     - Math.Pow(orderedSides[2].Length, 2)) < Constants.Eps;
-            return isRight;
+            return isRightAngled;
         }
 
         protected bool Equals(Triangle other)
@@ -62,11 +62,11 @@ namespace MindboxTestTask.Figures
         }
 
         /// <summary>
-        /// Если псевдоскалярное произведение векторов равно нулю, то все три точки лежат на одной прямой.
-        /// Следовательно, треугольника с такими координатами не существует.
+        /// If the pseudoscalar multiplication of vectors is equal to zero, then all three points lie on the same straight line.
+        /// Therefore, a triangle with such coordinates doesn't exist.
         /// </summary>
         /// <exception cref="ArgumentException"></exception>
-        public override void Validate()
+        protected override void Validate()
         {
             var vectorPseudoscalarMulti = (SideA.End.X - SideA.Start.X) * (SideC.End.Y - SideC.Start.Y)
                 - (SideA.End.Y - SideA.Start.Y) * (SideC.End.X - SideC.Start.X);

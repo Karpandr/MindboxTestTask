@@ -13,7 +13,7 @@ namespace MindboxTestTask.Figures
             Validate();
         }
 
-        public override double CalculateArea()
+        protected override double CalculateArea()
         {
             return Math.PI * Radius * Radius;
         }
@@ -39,7 +39,7 @@ namespace MindboxTestTask.Figures
             }
         }
 
-        public override void Validate()
+        protected override void Validate()
         {
             if (Radius <= 0)
                 throw new ArgumentException("Radius must be greater than zero");

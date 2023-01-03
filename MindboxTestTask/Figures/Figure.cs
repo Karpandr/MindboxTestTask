@@ -4,11 +4,11 @@
     {
         private readonly Lazy<double> _area;
         public double Area => _area.Value;
-        public abstract double CalculateArea();
-        public Figure()
+        protected abstract double CalculateArea();
+        protected Figure()
         {
             _area = new Lazy<double>(CalculateArea);
         }
-        public abstract void Validate();
+        protected abstract void Validate();
     }
 }
